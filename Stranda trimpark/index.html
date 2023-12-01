@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Stranda Trimpark</title>
+    <style>
+      body {
+         font-family: 'Times New Roman', Times, serif; /* Valgt font-familie for teksten */
+         margin: 0; /* Fjerner marger rundt kroppen av nettsiden */
+         padding: 0; /* Fjerner padding rundt kroppen av nettsiden */
+         background-color: #f2f2f2; /* Bakgrunnsfargen til hele nettsiden */
+         color: #FF8A36; /* Farge for teksten i kroppen av nettsiden */
+         display: grid; /* Bruker CSS grid for layout */
+         grid-template-columns: repeat(4, 1fr); /* Definerer kolonnestrukturen */
+         gap: 20px; /* Legger til avstand mellom elementene */
+        }
+
+        header {
+         grid-column: 1 / span 4; /* Tar opp plass fra første til fjerde kolonne i grid */
+         background-color: #568C6D; /* Bakgrunnsfarge for header */
+         color: #ffffff; /* Farge for teksten i header */
+         padding: 10px 0; /* Padding for header-elementet */
+         text-align: center; /* Justering av tekst til senter i header */
+        }
+
+        nav {
+         grid-column: 1 / span 4; /* Tar opp plass fra første til fjerde kolonne i grid */
+         background-color: #ffffff; /* Bakgrunnsfarge for navigasjon */
+         padding: 10px; /* Padding for navigasjonselementet */
+         text-align: center; /* Justering av tekst til senter i navigasjonen */
+        }
+
+        nav ul {
+         list-style-type: none; /* Fjerner punkter fra listeelementene */
+         margin: 0; /* Nullstiller marginen for å unngå ekstra mellomrom */
+         padding: 0; /* Nullstiller padding for å unngå ekstra mellomrom */
+         display: flex; /* Bruker flexbox for å organisere lenkene */
+         justify-content: space-around; /* Plasserer lenkene jevnt fordelt i navigasjonen */
+        }
+
+        nav ul li {
+         display: inline; /* Gjør listeelementene til en horisontal linje */
+         margin-right: 20px; /* Legger en ramme/margin mellom hvert elementpå listen */
+        }
+
+
+        nav ul li a {
+         text-decoration: none; /* Fjerner understreking fra lenkene */
+         color: #000000; /* Setter fargen til lenkene i navigasjonen */
+        }
+        .column {
+          grid-column: 1 / span 1; /* Tar opp en kolonne og strekker seg til én kolonneavsnitt */
+         background-color: #9FBFB0; /* Bakgrunnsfargen for kolonnen */
+         color: #000000; /* Fargen på teksten inni kolonnen */
+         padding: 20px; /* Polstring rundt innholdet i kolonnen */
+         height: 100vh; /* Setter høyden til 100% av visningsvinduet */
+         overflow: auto; /* Legger til rullefelt ved behov for innholdet som overskrider høyden */
+        }
+
+
+        .image-gallery {
+         grid-column: 2 / span 3; /* Plasserer bildene over tre kolonneavsnitt fra kolonne 2 */
+         display: grid; /* Bruker rutenett for å organisere bildene */
+         gap: 20px; /* Avstand mellom bildene */
+         margin-top: 50px; /* Margin øverst for å skape avstand fra elementene over */
+         justify-items: center; /* Sentrerer bildene horisontalt i galleriet */
+         position: relative; /* Legger til posisjon for å kontrollere posisjonen av andre elementer i forhold til galleriet */
+        }
+
+
+        .image-gallery img {
+         width: 100%; /* Bilder tar 100% bredde */
+         max-width: 600px; /* Maksimal bredde på bilder satt til 600px */
+         height: auto; /* Høyden justeres automatisk i forhold til bredden for å unngå forvrengning */
+         object-fit: cover; /* Sikrer at bildene dekker hele arealet og beholder proporsjonene */
+         border-radius: 15px; /* Legger til en avrundet kant på bildene */
+         border: 5px solid #38624a; /* Legger til en ramme med spesifikk farge og tykkelse rundt bildene */
+        
+        }
+        .image-caption {
+         color: black; /* Fargen for bildeteksten */
+         text-align: center; /* plasserer bildeteksten i midten */
+         margin-top: 20px; /* Legger en margin øverst for bildeteksten */
+        }
+
+        section {
+         grid-column: 2 / span 3; /* Opptar tre kolonner fra andre kolonne i grid */
+         padding: 20px; /* Padding rundt seksjonen */
+        }
+
+       .prev,
+       .next {
+         position: absolute; /* Absolutt posisjonering for å flytte knappene uavhengig */
+         top: 50%; /* Plasserer knappene vertikalt i midten av foreldrelementet */
+         width: auto; /* Bredden tilpasser seg innholdet */
+         padding: 16px; /* Polstring rundt knappene */
+         margin-top: -22px; /* Justerer knappens plassering vertikalt */
+         color: white; /* Tekstfargen til knappene */
+         font-weight: bold; /* Fet skrift */
+         font-size: 20px; /* Størrelsen på teksten */
+         transition: 0.6s ease; /* Overgangseffekt for jevn endring av egenskaper */
+         border-radius: 0 3px 3px 0; /* Avrundede hjørner på høyre side av høyre-knappen */
+         cursor: pointer; /* Endrer musemarkøren til en peker */
+         background-color: #000000; /* Bakgrunnsfargen til knappene */
+         border: none; /* Fjerner grensen rundt knappene */
+        }
+
+        .next {
+         right: 0; /* Plasserer neste-knappen helt til høyre i foreldrelementet */
+         border-radius: 3px 0 0 3px; /* Avrundede hjørner på venstre side av neste-knappen */
+        }
+
+        .prev:hover,
+        .next:hover {
+         background-color: #000000; /* Bakgrunnsfargeendring ved hover */
+        }
+
+        .slides img {
+         display: none; /* Skjuler bildene som en del av lysbildefremvisningen */
+         width: 100%; /* Bilder tar 100% av bredden i foreldreelementet */
+          border-radius: 15px; /* Avrundede hjørner på bilder */
+        }
+
+        .image-caption {
+         color: black; /* Tekstfargen til bildeteksten */
+         text-align: center; /* Sentrerer bildeteksten */
+         margin-top: 20px; /* Avstand fra toppen av bildeteksten til bildet */
+        }
+
+        .main-content {
+         grid-column: 1 / span 4; /* Opptar fire kolonner i grid */
+         display: grid; /* Bruker grid-layout */
+         grid-template-columns: 1fr 2fr 1fr; /* Kolonnestrukturen for innholdet */
+         gap: 20px; /* Avstand mellom elementene */
+         padding: 20px; /* Padding rundt innholdet */
+         margin-top: 20px; /* Margin fra toppen */
+         border-top: 2px solid #38624a; /* Øvre kantlinje */
+         border-bottom: 2px solid #38624a; /* Nedre kantlinje */
+        }
+
+
+        .featured-section {
+         background-color: #f9f9f9; /* Bakgrunnsfarge for featured-seksjon */
+         padding: 20px; /* Padding rundt featured-seksjonen */
+         border-radius: 10px; /* Avrundede hjørner for featured-seksjonen */
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Skyggeeffekt */
+        }
+
+        .featured-section h2 {
+         color: #000000; /* Farge for overskrift i featured-seksjon */
+         text-align: center; /* Justering av overskrift til senter */
+         margin-bottom: 10px; /* Margin nederst for overskriften */
+        }
+
+        .featured-section p {
+         color: #000000; /* Farge for tekst i featured-seksjon */
+         text-align: justify; /* Justering av tekst til venstre og høyre */
+        }
+
+        .additional-content {
+         background-color: #f9f9f9; /* Bakgrunnsfarge for tilleggsinnholdseksjonen */
+         padding: 20px; /* Padding rundt tilleggsinnholdseksjonen */
+         border-radius: 10px; /* Avrundede hjørner for tilleggsinnholdseksjonen */
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Skyggeeffekt */
+        }
+
+        .additional-content h2 {
+         color: #000000; /* Farge for overskrift i tilleggsinnholdseksjonen */
+         text-align: center; /* Justering av overskrift til senter */
+         margin-bottom: 10px; /* Margin nederst for overskriften */
+        }
+
+        .additional-content p {
+         color: #000000; /* Farge for tekst i tilleggsinnholdseksjonen */
+         text-align: justify; /* Justering av tekst til venstre og høyre */
+        }
+
+        .next {
+         position: absolute; /* Posisjonerer pilen absolutt på siden */
+         top: 50%; /* Plasserer pilen vertikalt midt på siden */
+         transform: translateY(-50%); /* Sentrerer pilen vertikalt nøyaktig */
+         padding: 16px; /* Legger til padding rundt pilen */
+         color: white; /* Setter tekstfargen til hvit */
+         font-weight: bold; /* Bruker fet skrift */
+         font-size: 20px; /* Angir skriftstørrelsen */
+         transition: 0.6s ease; /* Legger til overgangseffekter for glatt overgang */
+         border-radius: 3px 0 0 3px; /* Setter avrundede hjørner på pilen */
+         cursor: pointer; /* Endrer markøren til en håndpeker når du holder musepekeren over pilen */
+         background-color: rgba(0, 0, 0, 0.5); /* Setter bakgrunnsfargen til en halvtransparent svart */
+         border: none; /* Fjerner grensen rundt pilen */
+         z-index: 1; /* Setter pilen over andre elementer (z-indeks) */
+        }
+
+        .prev {
+         left: calc(50% - 300px); /* Posisjonerer pilen til venstre på midten av siden */
+         border-radius: 3px 0 0 3px; /* Setter avrundede hjørner på pilen */
+         border-top-left-radius: 0; /* Justerer spesifikke hjørner av rammen */
+         border-bottom-left-radius: 0; /* Justerer spesifikke hjørner av rammen */
+         border-top-right-radius: 3px; /* Justerer spesifikke hjørner av rammen */
+         border-bottom-right-radius: 3px; /* Justerer spesifikke hjørner av rammen */
+        }
+
+        .next {
+         right: calc(50% - 300px); /* Posisjonerer pilen til høyre på midten av siden */
+         border-radius: 3px 0 0 3px; /* Setter avrundede hjørner på pilen */
+         border-top-left-radius: 3px; /* Justerer spesifikke hjørner av rammen */
+         border-bottom-left-radius: 3px; /* Justerer spesifikke hjørner av rammen */
+         border-top-right-radius: 0; /* Justerer spesifikke hjørner av rammen */
+         border-bottom-right-radius: 0; /* Justerer spesifikke hjørner av rammen */
+        }
+
+
+    .slides {
+        position: relative; /* Sørger for at pilene er relatert til bildet */
+    }
+
+    .image-caption {
+        color: black;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        border: 2px solid transparent; /* Legg til en gjennomsiktig ramme */
+    }
+
+    nav ul li a:hover {
+        color: #555;
+        background-color: #e6e6e6;
+    }
+
+    nav ul li a.active {
+        background-color: #568C6D;
+        color: #ffffff;
+        border-color: #000; /* Legg til rammen for den aktive linken */
+    }
+
+    .dark-mode {
+            background-color: rgb(29, 50, 79); /* Mørkeblå bakgrunn */
+            color: #ffffff; /* Hvit tekst */
+        }
+
+        .dark-mode header {
+            background-color: #678BBE; /* Mørkere blå for header */
+            color: #ffffff; /* Hvit tekst i header */
+        }
+
+        .dark-mode nav {
+            background-color: #678BBE; /* Mørkere blå for navigasjon */
+        }
+
+        .dark-mode .featured-section,
+        .dark-mode .additional-content,
+        .dark-mode .column {
+            background-color: #53719B; /* Mørkeblå bakgrunn for de tre rutene og den grønne kolonnen */
+            color: #000000; /* Svart tekst for de tre rutene og den grønne kolonnen */
+            border-color: #ffffff; /* Endre farge på rammen rundt elementene */
+        }
+
+        .dark-mode .column {
+            background-color: #53719B; /* Mørkeblå bakgrunn for den grønne kolonnen i venstre side */
+            color: #ffffff; /* Hvit tekst for den grønne kolonnen i venstre side */
+        }
+
+        .dark-mode .column h2,
+        .dark-mode .column p,
+        .dark-mode .image-caption {
+            color: #ffffff; /* Hvit tekst for teksten inne i rutene og bildeteksten */
+        }
+
+        .dark-mode .main-content {
+            border-top-color: #ffffff; /* Endre farge på øverste linje i hovedinnholdet */
+            border-bottom-color: #ffffff; /* Endre farge på nederste linje i hovedinnholdet */
+        }
+
+        .dark-mode .slides img {
+            border-color: #ffffff; /* Endre fargen på rammen rundt bildene */
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Stranda Trimpark</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><b><a href="http://127.0.0.1:5500/1%C3%98velser.html">Øvelser</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/2Apparater.html">Apparater</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/3Omosss.html">Om oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/4Kontaktoss.html">Kontakt oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/5Andretreningssider.html">Trenings-sider</a></b></li>
+        </ul>
+    </nav>
+
+
+
+    <div class="column">
+        <button onclick="toggleDarkMode()" class="dark-mode-btn">Mørk/Lys</button>
+        <h2>8 gode treningsråd</h2>
+        <p> Spis proteinrik mat etter trening.</p>
+        <p> Søvn gir god forbrenning, så pass på at du sover nok.</p>
+        <p> Stryketrening skal gjøre litt vondt, mange unngår å legge på en ekstra vekt.</p>
+        <p> Det er også viktig å hvile etter en treningsøkt.</p>
+        <p> Drikk nok vann i løpet av dagen, så du ikke får vondt i hodet.</p>
+        <p> Unngå å få hold, selv om man ikke helt vet hvordan man får det.</p>
+        <p> Start og avslutt treningen med en rolig joggetur til du er god og varm.</p>
+        <p> Bruk hjelpemidler som en klokke for å sørge for å få oversikt om forbrenning,intensitet og puls både underveis i øktene og fra gang til gang.</p>
+    
+    </div>
+
+    <section id="exercises">
+        <div class="image-gallery">
+            <div class="slides">
+                <img src="img/MammaBarn.jpg" alt="Bilde fra åpningsdagen">             
+                <img src="img/Samling.jpg" alt="Bilde fra åpningsdagen">
+                <img src="img/MenneskerTrener.jpg" alt="Bilde fra åpningsdagen">
+                <img src="img/MannTrener.jpg" alt="Bilde fra åpningsdagen">
+            </div>
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            <p class="image-caption" style="color: black;"><b>Her er bilder fra første dagen når parken åpnet. Parken er sentralt og et godt sted for alle.</b></p>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <div class="featured-section">
+            <h2>Velkommen til Stranda Trimpark</h2>
+            <p>Vi er stolte av å tilby et mangfold av treningsmuligheter for alle aldre og ferdighetsnivåer. Vår park er designet med tanke på din komfort og treningsglede.</p>
+        </div>
+
+        <div class="additional-content">
+            <h2>Utforsk vårt treningsutstyr</h2>
+            <p>Enten du er nybegynner eller en erfaren atlet, har vi et bredt spekter av utstyr som passer dine behov. Ta en titt på vårt varierte utvalg og oppdag nye treningsmuligheter.</p>
+        </div>
+
+        <div class="featured-section">
+            <h2>Samfunnssentrert park</h2>
+            <p>Vår park er et sted for fellesskap og velvære. Vi ønsker å skape et vennlig miljø der alle kan møtes, trene og trives. Kom og bli en del av vårt trimpark-samfunn!</p>
+        </div>
+    </div>
+<br>
+
+<script>
+    // Lytter etter tastetrykk for navigasjon og handlinger på nettsiden
+document.addEventListener('keydown', function(event) {
+    const menuLinks = document.querySelectorAll('nav ul li a'); // Velger alle lenker i navigasjonsmenyen
+    const darkModeButton = document.querySelector('.dark-mode-btn'); // Velger mørk modus-knappen
+    const slides = document.querySelector('.image-gallery'); // Velger lysbildefremvisningen
+
+    if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+        slides.focus(); // Fokuserer på lysbildefremvisningen ved vertikal piltast
+    } else if (event.key === 'ArrowRight' && document.activeElement !== slides) {
+        // Håndterer høyre piltast for navigasjon og fokus
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === menuLinks.length - 1) {
+            darkModeButton.focus(); // Fokuserer på mørk modus-knappen hvis siste lenke er aktiv eller ingen er aktiv
+        } else {
+            menuLinks[focusedIndex + 1].focus(); // Fokuserer på neste lenke i navigasjonsmenyen
+        }
+    } else if (event.key === 'ArrowLeft' && document.activeElement !== slides) {
+        // Håndterer venstre piltast for navigasjon og fokus
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === 0) {
+            menuLinks[menuLinks.length - 1].focus(); // Fokuserer på siste lenke hvis den første er aktiv eller ingen er aktiv
+        } else {
+            menuLinks[focusedIndex - 1].focus(); // Fokuserer på forrige lenke i navigasjonsmenyen
+        }
+    } else if (event.key === 'Enter' && document.activeElement !== slides) {
+        document.activeElement.click(); // Klikker på aktivt element (lenke) hvis ikke lysbildefremvisningen er aktiv
+    }
+});
+
+
+let slideIndex = 1; // Initialiserer et indeksnummer for lysbildene, starter på det første bildet
+showSlide(slideIndex); // Viser det første bildet når siden lastes
+
+function changeSlide(n) {
+    showSlide(slideIndex += n); // Endrer lysbildet med en bestemt mengde (n) og viser det oppdaterte bildet
+}
+
+function showSlide(n) {
+    let i;
+    const slides = document.querySelectorAll('.slides img'); // Velger alle bildeelementer i lysbildene
+
+    // Sjekker om det valgte bildeindekset overstiger det totale antallet bilder
+    if (n > slides.length) {
+        slideIndex = 1; // Går tilbake til det første bildet hvis det valgte indekset er større enn antall bilder
+    }
+    // Sjekker om det valgte bildeindekset er mindre enn det første bildet
+    if (n < 1) {
+        slideIndex = slides.length; // Går til det siste bildet hvis det valgte indekset er mindre enn det første bildet
+    }
+    // Går gjennom alle bildene og skjuler dem
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    // Viser det valgte bildet ved å endre display-attributtet til "block"
+    slides[slideIndex - 1].style.display = 'block';
+}
+
+function toggleDarkMode() {
+    const body = document.body; // Velger body-elementet
+    body.classList.toggle("dark-mode"); // Legger til eller fjerner "dark-mode" klassen for å bytte til mørk modus
+}
+</script>
+</body>
+
+</html>

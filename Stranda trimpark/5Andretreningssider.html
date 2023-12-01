@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Andre treningssider</title>
+    <style>
+ body {
+    font-family: 'Times New Roman', Times, serif; /* Velger skrifttypen for hele dokumentet */
+    margin: 0; /* Fjerner standardmarginer */
+    padding: 0; /* Fjerner standardpadding */
+    background-color: #f2f2f2; /* Setter bakgrunnsfargen for hele dokumentet */
+    color: #000000; /* Angir standardtekstfargen */
+    display: grid; /* Bruker CSS grid for å organisere layouten */
+    gap: 20px; /* Legger til mellomrom mellom elementer */
+}
+
+header {
+    background-color: #568C6D; /* Bakgrunnsfarge for header */
+    color: #ffffff; /* Tekstfarge for header */
+    padding: 10px 0; /* Gir litt polstring over og under innholdet */
+    text-align: center; /* Sentrerer innholdet horisontalt */
+}
+
+header h1 a {
+    text-decoration: none; /* Fjerner understrek fra lenker i header */
+    color: #ffffff; /* Setter lenkens farge til hvit */
+}
+
+nav {
+    background-color: #ffffff; /* Bakgrunnsfarge for navigasjonsseksjonen */
+    padding: 10px; /* Gir litt polstring rundt innholdet i navigasjonen */
+    text-align: center; /* Sentrerer innholdet horisontalt */
+}
+
+nav ul {
+    list-style-type: none; /* Fjerner standard listestil for listen */
+    margin: 0; /* Fjerner standardmarginer for listen */
+    padding: 0; /* Fjerner standardpadding for listen */
+    display: flex; /* Bruker flexbox for å organisere listen horisontalt */
+    justify-content: space-around; /* Plasserer elementene med lik avstand */
+}
+
+nav ul li {
+    display: inline; /* Setter lenkene til å vise horisontalt */
+    margin-right: 20px; /* Gir høyremarginal mellom lenkene */
+}
+
+nav ul li a {
+    text-decoration: none; /* Fjerner understrek fra lenkene */
+    color: #333; /* Setter standardtekstfarge for lenkene */
+    padding: 5px 10px; /* Gir polstring rundt lenketeksten */
+    border-radius: 5px; /* Legger til avrundede hjørner på lenkene */
+    transition: background-color 0.3s ease; /* Legger til en overgangseffekt på bakgrunnsfargeendring */
+}
+
+nav ul li a:hover {
+    color: #555; /* Endrer tekstfarge ved hover */
+    background-color: #e6e6e6; /* Endrer bakgrunnsfarge ved hover */
+}
+
+nav ul li a.active {
+    background-color: #568C6D; /* Bakgrunnsfarge for aktiv lenke */
+    color: #ffffff; /* Tekstfarge for aktiv lenke */
+}
+
+section {
+    padding: 40px; /* Gir polstring innenfor seksjonen */
+    display: grid; /* Bruker CSS grid for layouten */
+    gap: 20px; /* Legger til mellomrom mellom elementer i gridet */
+    align-items: center; /* Sentrerer innholdet vertikalt */
+    text-align: center; /* Sentrerer teksten horisontalt */
+}
+
+.box {
+    color: #000000; /* Setter standardtekstfarge for boksene */
+    border-radius: 10px; /* Legger til avrundede hjørner på boksene */
+    overflow: hidden; /* Skjuler eventuelt overskuddsinformasjon i boksene */
+    border: 2px solid black; /* Legger til en svart kantlinje rundt boksene */
+    width: 100%; /* Boksbredde på 100% av foreldreelementets bredde */
+}
+
+.box img {
+    width: 100%; /* Bilder fyller hele bredden av boksen */
+    height: auto; /* Beholder proporsjonene mellom bredde og høyde */
+    object-fit: cover; /* Sikrer at bildet passer inn i boksen uten å miste proporsjonene */
+}
+
+.text-box {
+    text-align: center; /* Sentrerer teksten horisontalt */
+    padding: 10px; /* Gir polstring rundt tekstboksen */
+}
+
+.grid-heading {
+    grid-column: 1 / -1; /* Strekker overskriften over hele bredden */
+    text-align: center; /* Sentrerer teksten horisontalt */
+    font-size: 1.8em; /* Justerer størrelsen på overskriften */
+    margin-bottom: 20px; /* Gir avstand under overskriften */
+    color: #000000; /* Setter tekstfargen til svart */
+}
+
+.grid-content {
+    display: grid; /* Bruker CSS grid for layout */
+    grid-template-columns: 1fr auto 1fr; /* Tre kolonner med like stor bredde og mellomrom */
+    gap: 40px; /* Legger til mellomrom mellom elementene */
+}
+
+.grid-content .box {
+    background-color: #ffffff; /* Bakgrunnsfarge for boksene */
+    padding: 20px; /* Gir polstring rundt boksene */
+}
+
+.grid-content .box:nth-child(2) {
+    visibility: hidden; /* Gjør den midterste boksen usynlig */
+    width: 25%; /* Setter bredden til den midterste boksen til 25% av forelderens bredde */
+}
+
+.grid-content .box:first-child {
+    margin-right: auto; /* Plasserer den første boksen helt til høyre i foreldreelementet */
+}
+
+.grid-content .box:last-child {
+    margin-left: auto; /* Plasserer den siste boksen helt til venstre i foreldreelementet */
+}
+
+.grid-content .box p {
+    font-size: 1.1em; /* Justerer teksten inne i boksene til 1.1em */
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="http://127.0.0.1:5500/index.html">Stranda Trimpark</a></h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><b><a href="http://127.0.0.1:5500/1%C3%98velser.html">Øvelser</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/2Apparater.html">Apparater</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/3Omosss.html">Om oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/4Kontaktoss.html">Kontakt oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/5Andretreningssider.html" class="active">Trenings-sider</a></b></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h1 class="grid-heading">Andre treningssider</h1>
+        <p>Her kan du finne andre sider om trening, kanskje du trenger litt informasjon om hvordan du skal trene armer eller bein. Eller kanskje du bare lurer på andre øvelser det går ann å gjøre. <b>Da kan du finne linken for den nettsiden du har lyst til å besøke.</b> Her er de samlet for deg så det er enklere å finne.</p>
+        <div class="grid-content">
+            <div class="box">
+                <h2>Andre øvelser</h2>
+                <p><a href="https://sportsmaster.no/b2b/tips-og-trening/treningsprogram/andre-treningsprogram/enkle-treningsovelser-uten-vekter" target="_blank">Her kan du finne enkle treningsøvelser uten vekter:</a></p>
+                <p><a href="https://www.maximsport.no/tren-hjemme-uten-utstyr/" target="_blank">10 gode styrkeøvelser uten apparater:</a></p>
+                <p><a href="https://sportsmaster.no/tips-og-trening/artikler/styrketrening-nybegynnere-gode-ovelser-og-tips" target="_blank">Gode øvelser til styrketrening for nybegynnere</a></p>
+                <p><a href="https://iform.nu/trening/styrketrening/styrketreningsovelser/verdens-6-beste-ovelser"target="_blank">6 gode øvelser:</a></p>
+                
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+                <h2>Tips og råd til trening.</h2>
+                <p><a href="https://www.tine.no/merkevarer/yt/trening/10-tips-til-deg-som-skal-begynne-%C3%A5-trene" target="_blank">10 tips til deg som skal begynne å trene:</a></p>
+                <p><a href="https://www.vektklubb.no/artikkel/trening/8mL1EG/50-tips-til-foer-under-og-etter-styrketrening" target="_blank">50 tips til før, under og etter styrketrening:</a></p> 
+                <p><a href="https://www.helsenorge.no/trening-og-fysisk-aktivitet/gode-rad-for-a-bli-mer-fysisk-aktiv/" target="_blank">Tips for å bli mere aktiv:</a></p>  
+                <p><a href="https://www.gymgrossisten.no/10-regler-for-a-bygge-muskler.html" target="_blank">10 regler om å bygge muskler:</a></p>                          
+        </div>
+    </section>
+
+    <script>
+document.addEventListener('keydown', function(event) {
+    const menuLinks = document.querySelectorAll('nav ul li a');
+
+    if (event.key === 'ArrowRight') {
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === menuLinks.length - 1) {
+            menuLinks[0].focus(); // Går til første lenke hvis på siste
+        } else {
+            menuLinks[focusedIndex + 1].focus(); // Går til neste lenke
+        }
+    } else if (event.key === 'ArrowLeft') {
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === 0) {
+            menuLinks[menuLinks.length - 1].focus(); // Går til siste lenke hvis på første
+        } else {
+            menuLinks[focusedIndex - 1].focus(); // Går til forrige lenke
+        }
+    } else if (event.key === 'Enter' && document.activeElement !== slides) {
+        document.activeElement.click(); // Simulerer et klikk på den aktive lenken
+    }
+});
+
+    </script>
+</body>
+
+</html>

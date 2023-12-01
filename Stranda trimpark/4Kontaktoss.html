@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakt oss</title>
+    <style>
+ body {
+    font-family: 'Times New Roman', Times, serif; /* Bruker Times New Roman som standard font */
+    margin: 0; /* Nuller ut margen for å unngå uønsket mellomrom rundt kroppen */
+    padding: 0; /* Nuller ut padding for å unngå uønsket padding rundt kroppen */
+    background-color: #f2f2f2; /* Setter bakgrunnsfargen til en lys grå */
+    color: #000000; /* Angir standardtekstfargen til svart */
+    display: grid; /* Bruker CSS Grid for layout */
+    gap: 20px; /* Setter et mellomrom på 20 piksler mellom elementer */
+}
+
+header {
+    background-color: #568C6D; /* Bakgrunnsfarge for header */
+    color: #ffffff; /* Tekstfarge for header */
+    padding: 10px 0; /* Padding på 10 piksler over og under header-innhold */
+    text-align: center; /* Sentrerer teksten i headeren */
+}
+
+header h1 a {
+    text-decoration: none; /* Fjerner understreking fra lenker i headerens overskrift */
+    color: #ffffff; /* Farge for lenkene i headerens overskrift */
+}
+
+nav {
+    background-color: #ffffff; /* Bakgrunnsfarge for navigasjonsmenyen */
+    padding: 10px; /* Padding rundt navigasjonsmenyen */
+    text-align: center; /* Sentrerer innholdet i navigasjonsmenyen */
+}
+
+nav ul {
+    list-style-type: none; /* Fjerner standardpunktmerking fra listen */
+    margin: 0; /* Nuller ut margen for å unngå uønsket mellomrom */
+    padding: 0; /* Nuller ut padding for å unngå uønsket padding */
+    display: flex; /* Gjør listen til et flex-container */
+    justify-content: space-around; /* Plasserer elementene jevnt fordelt langs aksen */
+}
+
+nav ul li {
+    display: inline; /* Gjør listen til en rekke med elementer */
+    margin-right: 20px; /* Setter en høyremargen på 20 piksler mellom hvert element */
+}
+
+nav ul li a {
+    text-decoration: none; /* Fjerner understrek fra lenkene */
+    color: #333; /* Angir standardtekstfargen for lenker i navigasjonen */
+    padding: 5px 10px; /* Legger til padding rundt lenkene */
+    border-radius: 5px; /* Gir lenkene avrundede kanter */
+    transition: background-color 0.3s ease; /* Gir en jevn overgang for bakgrunnsfargeendringer */
+}
+
+nav ul li a:hover {
+    color: #555; /* Endrer tekstfargen ved hover (når musen er over lenken) */
+    background-color: #e6e6e6; /* Endrer bakgrunnsfarge ved hover */
+}
+
+nav ul li a.active {
+    background-color: #568C6D; /* Bakgrunnsfarge for aktive lenker */
+    color: #ffffff; /* Tekstfarge for aktive lenker */
+}
+
+section {
+    padding: 40px; /* Legger til padding rundt seksjonene */
+    display: grid; /* Bruker grid for å organisere innholdet */
+    grid-template-columns: 1fr 2fr; /* Deler seksjonen i to kolonner med forholdet 1:2 */
+    gap: 20px; /* Avstand mellom elementene */
+    align-items: center; /* Sentrerer innholdet vertikalt */
+}
+
+.box {
+    color: #000000; /* Tekstfarge for innholdet i boksen */
+    border-radius: 10px; /* Rundere hjørner på boksen */
+    overflow: hidden; /* Hindrer innholdet i å overskride boksen */
+    border: 2px solid black; /* Legger til en svart kantlinje rundt boksen */
+    width: 80vh; /* Setter bredden til 80% av visningshøyden */
+    height: 80vh; /* Setter høyden til 80% av visningshøyden */
+    margin: 0 auto; /* Sentrerer boksen horisontalt */
+}
+
+.box img {
+    width: 100%; /* Bilde fyller hele bredden av boksen */
+    height: 100%; /* Bilde fyller hele høyden av boksen proporsjonalt */
+    object-fit: cover; /* Tilpasser bildet til å dekke boksen */
+    display: block; /* Sikrer riktig visning av bildet */
+}
+
+.text-box {
+    text-align: center; /* Sentrerer teksten i boksen */
+    padding: 10px; /* Gir litt luft rundt teksten */
+}
+
+/* Reduserer størrelsen på tekstboksen */
+.text-box h3,
+.text-box p {
+    font-size: 0.9em; /* Reduserer skriftstørrelsen på overskrift og avsnitt */
+}
+
+.category {
+    text-align: center; /* Sentrerer kategorien */
+    font-weight: bold; /* Gjør teksten fet */
+    margin-bottom: 20px; /* Legger til avstand under kategorien */
+}
+
+.grid-heading {
+    grid-column: 1 / -1; /* Strekker overskriften over hele raden */
+    text-align: center; /* Sentrerer overskriften */
+    font-size: 1.2em; /* Justerer størrelsen etter behov */
+    margin-bottom: 20px; /* Legger til litt mellomrom under overskriften */
+    color: #000000; /* Angir tekstfargen */
+}
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="http://127.0.0.1:5500/index.html">Stranda Trimpark</a></h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><b><a href="http://127.0.0.1:5500/1%C3%98velser.html">Øvelser</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/2Apparater.html">Apparater</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/3Omosss.html">Om oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/4Kontaktoss.html" class="active">Kontakt oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/5Andretreningssider.html">Trenings-sider</a></b></li>
+        </ul>
+    </nav>
+
+    <section>
+        <div class="box" style="width: 50vw;"> <!-- Endrer bredden til bildet -->
+            <img src="img/Damersitter.jpg" alt="En dame løfter en vekt">
+        </div>
+        <div class="text-box">
+            <h1>Kontakt oss</h1>
+            <p>Har det skjedd noe hærverk, er det noe rart med apparatene eller har du bare et sjenerelt spørsmål. Ta kontakt</p>
+            <p><b>Epost:</b> <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZfSNpVdCgncnvRmBTtBvcHrKXlbPCMTZNVbFsrsfcPHbztSZqCMKsvjCXjHNGrzsqBHjq">Strandatrimpaark@gmail.com</a></p>
+            <p><b>Tlf:</b>+67 980 8</p>
+            <h4>Takk for at du tar vare på parken vår!</h4>
+        </div>
+    </section>
+    <script>
+document.addEventListener('keydown', function(event) {
+    const menuLinks = document.querySelectorAll('nav ul li a');
+
+    if (event.key === 'ArrowRight') {
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === menuLinks.length - 1) {
+            menuLinks[0].focus(); // Går til første lenke hvis på siste
+        } else {
+            menuLinks[focusedIndex + 1].focus(); // Går til neste lenke
+        }
+    } else if (event.key === 'ArrowLeft') {
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === 0) {
+            menuLinks[menuLinks.length - 1].focus(); // Går til siste lenke hvis på første
+        } else {
+            menuLinks[focusedIndex - 1].focus(); // Går til forrige lenke
+        }
+    } else if (event.key === 'Enter' && document.activeElement !== slides) {
+        document.activeElement.click(); // Simulerer et klikk på den aktive lenken
+    }
+});
+
+    </script>
+</body>
+
+</html>

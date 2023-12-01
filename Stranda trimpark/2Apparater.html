@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Apparater</title>
+    <style>
+ body {
+    font-family: 'Times New Roman', Times, serif; /* Bruker skrifttypen Times New Roman eller en fallback til Times eller en generisk serif-skript */
+    margin: 0; /* Fjerner all ytre marginkant */
+    padding: 0; /* Fjerner all padding */
+    background-color: #f2f2f2; /* Setter bakgrunnsfargen til lys grå */
+    color: #568C6D; /* Setter tekstfargen til en spesifikk grønnfarge */
+    display: grid; /* Bruker CSS grid som layoutmodell for hovedinnholdet */
+    gap: 20px; /* Angir avstanden mellom elementer */
+}
+
+header {
+    background-color: #568C6D; /* Bakgrunnsfargen for headeren, en annen nyanse av grønn */
+    color: #ffffff; /* Tekstfargen i headeren, hvit */
+    padding: 10px 0; /* Innpadding øverst og nederst i headeren */
+    text-align: center; /* Senterjusterer teksten inni headeren */
+}
+
+header h1 a {
+    text-decoration: none; /* Fjerner understreking av lenkene */
+    color: #ffffff; /* Setter fargen på lenketeksten til hvit */
+}
+
+nav {
+    background-color: #ffffff; /* Bakgrunnsfargen for navigasjonsområdet, hvit */
+    padding: 10px; /* Legger til polstring rundt innholdet i navigasjonsområdet */
+    text-align: center; /* Sentrerer innholdet horisontalt */
+}
+
+nav ul {
+    list-style-type: none; /* Fjerner standard listestyling */
+    margin: 0; /* Fjerner alle marginkanter */
+    padding: 0; /* Fjerner all padding */
+    display: flex; /* Bruker flexbox for å organisere lenkene */
+    justify-content: space-around; /* Fordeler plassen jevnt mellom lenkene */
+}
+
+nav ul li {
+    display: inline; /* Setter lenkene til å vise seg i linje med hverandre */
+    margin-right: 20px; /* Legger til høyremarginkant mellom lenkene */
+}
+
+nav ul li a {
+    text-decoration: none; /* Fjerner understrek fra lenketeksten */
+    color: #333; /* Setter fargen på lenketeksten til en mørk grå */
+    padding: 5px 10px; /* Legger til polstring rundt lenketeksten */
+    border-radius: 5px; /* Runder av hjørnene på lenkene */
+    transition: background-color 0.3s ease; /* Legger til en jevn overgang for bakgrunnsfargeendringer */
+}
+nav ul li a:hover {
+    color: #555; /* Endrer tekstfargen ved hover til en mørkere grå */
+    background-color: #e6e6e6; /* Legger til en lysere bakgrunnsfarge ved hover */
+}
+
+nav ul li a.active {
+    background-color: #568C6D; /* Bakgrunnsfargen for den aktive lenken */
+    color: #ffffff; /* Tekstfargen for den aktive lenken, hvit */
+}
+
+section {
+    padding: 40px; /* Legger til polstring rundt innholdet i avsnittet */
+    display: grid; /* Bruker grid for å organisere elementene i avsnittet */
+    grid-template-columns: repeat(3, minmax(100px, 3fr)); /* Definerer rutestrukturen for avsnittet, tre kolonner med justerbar bredde */
+    gap: 20px; /* Legger til mellomrom mellom elementene i avsnittet */
+}
+
+.box {
+    color: #000000; /* Tekstfargen for boksene */
+    border-radius: 10px; /* Runder av hjørnene på boksene */
+    overflow: hidden; /* Skjuler innhold som overskrider boksens størrelse */
+    border: 2px solid black; /* Legger til en svart kantlinje rundt boksene */
+    width: 100%; /* Setter boksens bredde til 100% av foreldrelementet */
+}
+.box img {
+    width: 100%; /* Bildebredde som tar opp 100% av boksens bredde */
+    height: auto; /* Automatisk høyde i forhold til bildets bredde */
+    object-fit: cover; /* Sikrer at bildet fyller boksen uten å miste proporsjonene */
+}
+
+.text-box {
+    text-align: center; /* Sentrerer teksten innenfor tekstboksen */
+    padding: 10px; /* Gir en polstring rundt tekstboksen */
+}
+
+/* Reduserer størrelsen på tekstinnholdet i tekstboksen */
+.text-box h3,
+.text-box p {
+    font-size: 0.9em; /* Reduserer skriftstørrelsen til 0.9em for overskrifter og avsnitt */
+}
+
+.category {
+    text-align: center; /* Sentrerer kategoriteksten */
+    font-weight: bold; /* Gjør kategoriteksten fet */
+    margin-bottom: 20px; /* Legger til en bunnmarg til kategoriteksten */
+}
+
+.grid-heading {
+ grid-column: 1 / -1; /* Strekker overskriften over hele raden */
+ text-align: left;
+ font-size: 1.5em; /* Øk fontstørrelsen for overskriftene */
+ margin-bottom: 5px; /* Legg til litt mellomrom under overskriften */
+ top: margin 0;
+ color: #000000; 
+}
+
+
+
+.grid-heading {
+ grid-column: 1 / -1; /* Strekker overskriften over hele raden */
+ text-align: left;
+ font-size: 1.5em; /* Øk fontstørrelsen for overskriftene */
+ margin-bottom: 5px; /* Legg til litt mellomrom under overskriften */
+ top: margin 0;
+ color: #000000;
+ margin-top: 0; /* Justering av toppmargin for overskriften */  
+}
+
+
+</style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="http://127.0.0.1:5500/index.html">Stranda Trimpark</a></h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><b><a href="http://127.0.0.1:5500/1%C3%98velser.html">Øvelser</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/2Apparater.html" class="active">Apparater</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/3Omosss.html">Om oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/4Kontaktoss.html">Kontakt oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/5Andretreningssider.html">Trenings-sider</a></b></li>
+        </ul>
+    </nav>
+
+    <section>
+
+        <h1 class="grid-heading">Kondisjon</h1>
+
+        <div class="box">
+            <img src="img/Hoppegreier.png" alt="Bilde 1">
+            <div class="text-box">
+                <h3>Steps</h3>
+                <p>Her kan du velge å hoppe fra den ene til den andre, enten om du starter fra bunn eller toppen. Du kan også hoppe opp og ned, her har du da firehøyder å velge mellom. Men du kan også gjøre noen enkle step-ups.</p>
+                <p>Flere studier viser at trening med step har lav skaderisiko og gir god treningseffekt.</p>
+
+            </div>
+        </div>
+        <div class="box">
+            <img src="img/Løpemaskin.png" alt="Bilde 2">
+            <div class="text-box">
+                <h3>Crosstrainer</h3>
+                <p>Crosstrainer kombinerer det beste fra trimsykkel, tredemølle og stepmaskin.</p>
+                <p>Crosstrainer kombinerer det beste fra trimsykkel, tredemølle og stepmaskin. Trening på crosstrainer strammer opp musklene i legger, lår og sete i tillegg til at de bevegelige håndtakene trener armer, bryst og rygg. Dette gir meget høy treningseffekt og fettforbrenning.</p>
+            </div>
+        </div>
+        <div class="box">
+            <img src="img/Sykkel.png" alt="Bilde 3">
+            <div class="text-box">
+                <h3>Treningssykkler</h3>
+                <p>Du og din kamerat kan ta en sykkeltur sammen på disse treningssykklene.</p>
+                <p>Sykling er en utmerket sport for deg som sliter med kneskader og -tilstander som artrose i kne. Siden det ikke er knærne og beina som bærer kroppsvekten, for tyngdepunktet sentreres på sykkelsetet.</p>
+            </div>
+        </div>
+
+<br>
+
+        <h1 class="grid-heading">Styrke</h1>
+
+        <div class="box">
+            <img src="img/Armhevninger.png" alt="Bilde 4">
+            <div class="text-box">
+                <h3>Skulderpress</h3>
+                <p>Skulderpress med manualer er kanskje den beste pressøvelsen for deg som vil ha store og sterke skuldre. Som med alle andre pressøvelser vil også triceps få god trening.</p>
+                <p>Du får trent opp skulderstabiliteten, noe som er svært viktig for å redusere skaderisiko ved tyngre løft med stang.</p>
+            </div>
+        </div>
+        <div class="box">
+            <img src="img/Brystpress.png" alt="Bilde 5">
+            <div class="text-box">
+                <h3>Brystpress</h3>
+                <p>Brystpress i maskin er en meget god brystøvelse som også trener triceps på en god måte.</p>
+                <p>Det er en stabil øvelse som ikke stiller store krav til kjernemuskulatur og balanse. Det gjør at det er lettere å få full aktivering i musklene som øvelsen fokuserer på. Øvelsen er også veldig fin for nybegynnere som vil lære seg styrketrening.</p>
+            </div>
+        </div>
+        <div class="box">
+            <img src="img/Beinpress.png" alt="Bilde 6">
+            <div class="text-box">
+                <h3>Beinpress</h3>
+                <p>Beinpress, eller lårpress som det også kalles, er en kjempefin øvelse som primært trener forsiden av lårene og setemuskulaturen. Den forbedrer også styrken og bevegeligheten i beina dine, og hjelper deg til å bli raskere og oppnå bedre spenst.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+       document.addEventListener('keydown', function(event) {
+    const menuLinks = document.querySelectorAll('nav ul li a');
+
+    if (event.key === 'ArrowRight') {
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === menuLinks.length - 1) {
+            menuLinks[0].focus(); // Går til første lenke hvis på siste
+        } else {
+            menuLinks[focusedIndex + 1].focus(); // Går til neste lenke
+        }
+    } else if (event.key === 'ArrowLeft') {
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === 0) {
+            menuLinks[menuLinks.length - 1].focus(); // Går til siste lenke hvis på første
+        } else {
+            menuLinks[focusedIndex - 1].focus(); // Går til forrige lenke
+        }
+    } else if (event.key === 'Enter' && document.activeElement !== slides) {
+        document.activeElement.click(); // Simulerer et klikk på den aktive lenken
+    }
+});
+
+    </script>
+</body>
+
+</html>

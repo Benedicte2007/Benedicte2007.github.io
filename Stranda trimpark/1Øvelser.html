@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Øvelser</title>
+<style>
+
+body {
+    font-family: 'Times New Roman', Times, serif; /* Bruker Times New Roman-skrifttypen for teksten */
+    margin: 0; /* Nullstiller margene for å fjerne standardmargen */
+    padding: 0; /* Nullstiller padding for å fjerne standardpadding */
+    background-color: #f2f2f2; /* Setter bakgrunnsfargen til en lys gråfarge */
+    color: #568C6D; /* Setter tekstfargen til en grønnaktig nyanse */
+    display: grid; /* Bruker CSS Grid for layout */
+    gap: 20px; /* Setter avstand mellom elementene */
+}
+
+header {
+    background-color: #568C6D; /* Setter bakgrunnsfargen for overskriften til en grønnaktig farge */
+    color: #ffffff; /* Setter tekstfargen for overskriften til hvit */
+    padding: 10px 0; /* Legger til padding over og under overskriften */
+    text-align: center; /* Sentrerer tekstinnholdet i overskriften */
+}
+
+header h1 a {
+    text-decoration: none; /* Fjerner understreking fra lenker i overskriften */
+    color: #ffffff; /* Setter fargen på lenkene i overskriften til hvit */
+}
+nav {
+    background-color: #ffffff; /* Setter bakgrunnsfargen for navigasjonsfeltet til hvit */
+    padding: 10px; /* Legger til litt polstring rundt navigasjonsfeltet */
+    text-align: center; /* Sentrerer innholdet innenfor navigasjonsfeltet */
+}
+
+nav ul {
+    list-style-type: none; /* Fjerner standard listestiler for navigasjonselementene */
+    margin: 0; /* Nullstiller margen for å fjerne standardmargen */
+    padding: 0; /* Nullstiller padding for å fjerne standardpadding */
+    display: flex; /* Bruker flexbox for å organisere navigasjonselementene */
+    justify-content: space-around; /* Fordeler plassen jevnt mellom navigasjonselementene */
+}
+
+nav ul li {
+    display: inline; /* Angir at navigasjonselementene skal vises ved siden av hverandre */
+    margin-right: 20px; /* Legger til litt avstand mellom navigasjonselementene */
+}
+
+nav ul li a {
+    text-decoration: none; /* Fjerner understrek fra lenker innenfor navigasjonen */
+    color: #333; /* Setter fargen på lenkene til en mørk gråfarge */
+    padding: 5px 10px; /* Legger til litt polstring rundt lenkene */
+    border-radius: 5px; /* Gir lenkene avrundede hjørner */
+    transition: background-color 0.3s ease; /* Legger til en overgangseffekt for bakgrunnsfargen på lenkene */
+}
+nav ul li a:hover {
+    color: #555; /* Endrer tekstfargen ved hover til en mørkere grå */
+    background-color: #e6e6e6; /* Legger til en lysere bakgrunnsfarge ved hover */
+}
+
+nav ul li a.active {
+    background-color: #568C6D; /* Setter bakgrunnsfargen for den aktive linken til en spesifikk grønnfarge */
+    color: #ffffff; /* Setter tekstfargen for den aktive linken til hvit */
+}
+
+section {
+    padding: 40px; /* Legger til polstring rundt seksjonsinnholdet */
+    display: grid; /* Bruker grid-layout for seksjonsoppsettet */
+    grid-template-columns: repeat(2, 1fr); /* Deler seksjonen inn i to like store kolonner */
+    gap: 20px; /* Setter avstand mellom rutene i seksjonen */
+}
+
+.box {
+    color: #000000; /* Angir teksten innenfor boksen til svart */
+    border-radius: 10px; /* Gir boksen avrundede hjørner */
+    overflow: hidden; /* Skjuler eventuelt innhold som strekker seg utover boksens grenser */
+    border: 2px solid black; /* Setter en svart ramme rundt boksen */
+    width: 100%; /* Boksen tar opp 100% av den tilgjengelige bredden */
+    height: 320px; /* Setter en fast høyde for boksen */
+    display: flex; /* Bruker flexbox for å justere innholdet innenfor boksen */
+    align-items: center; /* Sentrerer innholdet vertikalt */
+    justify-content: center; /* Sentrerer innholdet horisontalt */
+}
+.box video {
+    width: 75%; /* Definerer bredden til videoelementet til 75% av foreldreelementet */
+    border-radius: 8px; /* Gir videoelementet avrundede hjørner */
+}
+
+.text-box {
+    text-align: center; /* Sentrerer teksten innenfor boksen */
+    padding: 10px; /* Gir litt polstring rundt tekstboksen */
+    width: 80%; /* Angir bredden til tekstboksen til 80% av foreldreelementet */
+    margin: auto; /* Sentrerer tekstboksen horisontalt */
+}
+
+/* Reduserer størrelsen på teksten innenfor tekstboksen */
+.text-box h3,
+.text-box p {
+    font-size: 0.9em; /* Setter en mindre skriftstørrelse for overskrifter og avsnitt */
+}
+
+.category {
+    text-align: center; /* Sentrerer teksten for kategorien */
+    font-weight: bold; /* Angir fet skrift for kategorien */
+    margin-bottom: 20px; /* Legger til litt avstand under kategorien */
+}
+
+.grid-heading {
+  grid-column: 1 / -1; /* Strekker overskriften over hele raden */
+  text-align: center;
+ font-size: 1.2em; /* Juster størrelsen etter behov */
+ margin-bottom: 20px; /* Legg til litt mellomrom under overskriften */
+ color: #000000;
+}
+</style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="http://127.0.0.1:5500/index.html">Stranda Trimpark</a></h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><b><a href="http://127.0.0.1:5500/1%C3%98velser.html"class="active">Øvelser</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/2Apparater.html">Apparater</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/3Omosss.html">Om oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/4Kontaktoss.html">Kontakt oss</a></b></li>
+            <li><b><a href="http://127.0.0.1:5500/5Andretreningssider.html">Trenings-sider</a></b></li>
+
+        </ul>
+    </nav>
+
+    <section>
+        <h1 class="grid-heading">Styrke</h1>
+
+        <div class="box">
+            <video width="320" height="400" controls>
+                <source src="img/ØKbeinpress.mp4" type="video/mp4">
+            </video>
+            <div class="text-box">
+                <h3>Beinpress</h3>
+            </div>
+        </div>
+
+        <div class="box">
+            <video width="320" height="400" controls>
+                <source src="img/ØKskulder.mp4" type="video/mp4">
+
+            </video>
+            <div class="text-box">
+                <h3>Skulderpress</h3>
+            </div>
+        </div>
+
+        <br>
+
+        <h1 class="grid-heading">Kondisjon</h1>
+
+        <div class="box">
+            <video width="320" height="400" controls>
+                <source src="img/ØKløpe.mp4" type="video/mp4">
+            </video>
+            <div class="text-box">
+                <h3>Crosstrainer</h3>
+            </div>
+        </div>
+
+        <div class="box">
+            <video width="320" height="400" controls>
+                <source src="img/ØKstep.mp4" type="video/mp4">
+            </video>
+            <div class="text-box">
+                <h3>Steps</h3>
+            </div>
+        </div>
+    </section>
+    <script>
+document.addEventListener('keydown', function(event) {
+    const menuLinks = document.querySelectorAll('nav ul li a');
+
+    if (event.key === 'ArrowRight') {
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === menuLinks.length - 1) {
+            menuLinks[0].focus(); // Går til første lenke hvis på siste
+        } else {
+            menuLinks[focusedIndex + 1].focus(); // Går til neste lenke
+        }
+    } else if (event.key === 'ArrowLeft') {
+        const focusedIndex = Array.from(menuLinks).findIndex(link => link === document.activeElement);
+        if (focusedIndex === -1 || focusedIndex === 0) {
+            menuLinks[menuLinks.length - 1].focus(); // Går til siste lenke hvis på første
+        } else {
+            menuLinks[focusedIndex - 1].focus(); // Går til forrige lenke
+        }
+    } else if (event.key === 'Enter' && document.activeElement !== slides) {
+        document.activeElement.click(); // Simulerer et klikk på den aktive lenken
+    }
+});
+
+    </script>
+</body>
+
+</html>
